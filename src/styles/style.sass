@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap')
+
+$background-gray: #EDEDED
+$header-blue: #22344C
+$focused-blue: #38537E
+$font-white: #F1F1F1
+$font-black: #090909
+$bad-red: #b44346
+$softkey-gray: #777777
+$tabs-gray: #BBBBBB
+
+@mixin focusable
+    width: calc(100% - 2rem)
+    font-family: 'Open Sans', sans-serif
+    font-size: 1.4rem
+    color: $focused-blue
+    text-decoration: none
+    border: solid 2px $focused-blue
+    border-radius: 3px
+    background: $background-gray
+    box-sizing: border-box
+    margin: 1rem
+    padding-left: 1rem
+    height: 3.6rem
+
+    &:focus
+        color: $font-white
+        background: $focused-blue
+
+html, body
+    position: relative
+    height: 100%
+    width: 100%
+    overflow: hidden
+    padding: 0
+    margin: 0
+    font-size: 10px
+
+#app
+    position: relative
+    overflow: hidden
+    background: $background-gray
+    width: 100vw
+    height: 100%
+    font-family: 'Open Sans', sans-serif
+
+.top-bar
+    background: $header-blue
+    color: $font-white
+    height: 2.8rem
+    position: relative
+    width: 100%
+
+    &__text
+        font-size: 1.7rem
+        margin: 0 1rem 0 1rem
+        height: 100%
+        text-align: center
+
+.section
+    overflow: hidden
+    position: relative
+    width: 100vw
+    height: calc(100% - 8.8rem)
+
+    &__input
+        display: block
+        @include focusable
+
+        &--hidden
+            display: none
+
+    &__button
+        display: block
+        @include focusable
+
+    &__list
+        margin: 0
+        padding: 0
+        list-style-type: none
+
+    &__item
+        text-align: center
+        display: flex
+        justify-content: center
+        align-items: center
+        @include focusable
+
+    &-selector
+        height: 3rem
+        background: $tabs-gray
+
+        &__list
+            height: 100%
+            list-style-type: none
+            margin: 0 1rem 0 1rem
+            padding: 0
+            display: flex
+            align-items: center
+            justify-content: space-around
+            font-size: 1.4rem
+
+        &__item
+
+            margin: 0
+
+            &--active
+                border-bottom: 0.2rem $focused-blue solid
+
+.software-keys
+    box-sizing: border-box
+    color: $font-black
+    padding: .5rem
+    grid-gap: .5rem
+    display: grid
+    grid-template-columns: 3fr 4fr 3fr
+    height: 3rem
+    bottom: 0
+    position: relative
+    background: $softkey-gray
+
+    &__key
+        font-size: 1.4rem
+        height: 100%
+        display: flex
+        align-items: center
+
+    &__left
+        justify-content: flex-start
+        text-align: start
+        font-weight: 600
+
+    &__center
+        justify-content: center
+        font-weight: 700
+
+    &__right
+        justify-content: flex-end
+        font-weight: 600
+        text-align: end
+
+.error
+    color: $font-white
+    font-size: 1.4rem
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+    transform: translateY(20px)
+    height: 50px
+    width: 100vw
+    background: $bad-red
+    bottom: 0
+    transition: transform 0.5s ease-in-out
+    position: absolute
+
+    &--on
+        transform: translateY(-30px)
+
+    &__message
+        margin: 0
+
+// .navigable:focus
+//     background: red
+
+// .section-selector__item--active
+//     background: red
+
+// .error
+//     display: none
+
+// .error--on
+//     display: block
+
+// *
+//     display: block

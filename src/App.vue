@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <topBar></topBar>
+  <sectionSelector :sections="['zip', 'unzip']"></sectionSelector>
+  <component :is="currentSection"></component>
+  <errorMessage></errorMessage>
+  <softwareKeys></softwareKeys>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import softwareKeys from "./components/softwareKeys.vue";
+import sectionSelector from "./components/sectionSelector.vue";
+import errorMessage from "./components/errorMessage.vue";
+import topBar from "./components/topBar.vue";
+import zip from "./sections/zip.vue";
+import unzip from "./sections/unzip.vue";
+import("./utils/navigation.js");
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    softwareKeys,
+    errorMessage,
+    sectionSelector,
+    topBar,
+    zip,
+    unzip
+  },
+  computed:{
+    currentSection(){
+      return this.$store.state.activeSection
+    }
   }
-}
+};
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+@import "./styles/style.sass"
 </style>

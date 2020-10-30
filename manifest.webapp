@@ -1,0 +1,26 @@
+{
+	"version": "1.1.0",
+	"name": "Zipper",
+	"subtitle": "Zip and unzip files on your device.",
+	"description": "Zip and unzip files on your device. There is no internet connection needed!",
+	"categories": ["utilites"],
+	"type": "privileged",
+	"launch_path": "/index.html",
+	"cursor": false,
+	"icons": {
+		"60": "/zipper_64.png",
+		"128": "/zipper_128.png"
+	},
+	"developer": {
+		"name": "Jan Michalak",
+		"url": "https://canicjusz.github.io"
+	},
+	"locales": {
+		"en-US": {
+			"name": "Zipper",
+			"subtitle": "Zip and unzip files on your device.",
+			"description": "Zip and unzip files on your device. There is no internet connection needed!"
+		}
+	},
+	"default_locale": "en-US"
+}
