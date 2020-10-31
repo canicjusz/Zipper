@@ -9,9 +9,7 @@
 <script>
 import { mapState } from "vuex";
 export default {
-    computed: {
-        ...mapState(['softwareKeys'])
-    }
+    computed: mapState(['softwareKeys'])
 }
 </script>
 

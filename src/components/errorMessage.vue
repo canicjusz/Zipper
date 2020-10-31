@@ -7,9 +7,7 @@
 <script>
 import { mapState } from "vuex";
 export default {
-  computed: {
-    ...mapState(['showError', 'error'])
-  }
+  computed: mapState(['showError', 'error'])
 }
 </script>
 

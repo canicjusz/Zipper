@@ -1,7 +1,7 @@
 <template>
   <div class="section-selector">
       <ul class="section-selector__list">
-          <li :class="['section-selector__item', {'section-selector__item--active': section === currentSection}]" v-for="section in sections" :key="section">
+          <li :class="['section-selector__item', {'section-selector__item--active': section === activeSection}]" v-for="section in sections" :key="section">
               {{section.replace(/^\w/, fstLet=>fstLet.toUpperCase())}}
           </li>
       </ul>
@@ -9,15 +9,12 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
     props: {
         sections: Object
     },
-    computed:{
-        currentSection(){
-            return this.$store.state.activeSection
-        }
-    }
+    computed: mapState(['activeSection'])
 }
 </script>
 

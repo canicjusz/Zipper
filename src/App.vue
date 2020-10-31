@@ -1,7 +1,9 @@
 <template>
-  <topBar></topBar>
+  <div class="top-bar">
+    <p class="top-bar__text">Zipper</p>
+  </div>
   <sectionSelector :sections="['zip', 'unzip']"></sectionSelector>
-  <component :is="currentSection"></component>
+  <component :is="activeSection"></component>
   <errorMessage></errorMessage>
   <softwareKeys></softwareKeys>
 </template>
@@ -9,10 +11,10 @@
 import softwareKeys from "./components/softwareKeys.vue";
 import sectionSelector from "./components/sectionSelector.vue";
 import errorMessage from "./components/errorMessage.vue";
-import topBar from "./components/topBar.vue";
 import zip from "./sections/zip.vue";
 import unzip from "./sections/unzip.vue";
 import("./utils/navigation.js");
+import { mapState } from "vuex";
 
 export default {
   name: "App",
@@ -20,15 +22,10 @@ export default {
     softwareKeys,
     errorMessage,
     sectionSelector,
-    topBar,
     zip,
     unzip
   },
-  computed:{
-    currentSection(){
-      return this.$store.state.activeSection
-    }
-  }
+  computed: mapState(['activeSection'])
 };
 </script>
 
