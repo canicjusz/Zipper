@@ -10,7 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "file-saver": "^2.0.2",
-    "jszip": "^3.5.0",
+    "jszip": "^3.7.0",
     "naviboard": "^4.1.0",
     "rollup-plugin-vue": "^6.0.0-beta.8",
     "vue": "^3.0.0",
